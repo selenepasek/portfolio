@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratorio · Portfolio de Selene Martínez Pasek</title>
+<meta name="description" content="Prácticas, laboratorios y proyectos de ASIR: DNS y DHCP sobre ESXi, bastionado de Ubuntu Server, CCNA, dispositivo IoT bastionado y un mini SIEM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script src="assets/tw.js"></script>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="fotos/logologo.png">
+</head>
+<body class="bg-ink text-cream font-mono antialiased">
+
+<a href="#principal" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-4 focus:rounded-full focus:border focus:border-lilac focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:text-lilac">Saltar al contenido</a>
+
+<div class="mx-auto w-full max-w-[1180px] px-5 sm:px-8">
+
+  <header class="flex flex-wrap items-center justify-between gap-4 border-b border-line py-6">
+    <a href="index.html" class="text-cream no-underline">
+      <span class="font-display text-[21px] leading-tight tracking-tight sm:text-[25px]">Portfolio de Selene Martínez Pasek</span>
+    </a>
+    <button type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-movil" class="min-h-[44px] rounded-full border border-line2 px-5 text-xs uppercase tracking-[0.12em] text-lilac sm:hidden">menú</button>
+    <nav aria-label="Principal" class="hidden flex-wrap items-center gap-1 sm:flex">
+      <a href="sobre-mi.html" class="px-3.5 py-2.5 text-[14px] uppercase tracking-[0.08em] text-soft no-underline transition-colors hover:text-lilac">sobre mí</a>
+      <a href="publicaciones.html" class="px-3.5 py-2.5 text-[14px] uppercase tracking-[0.08em] text-soft no-underline transition-colors hover:text-lilac">publicaciones</a>
+      <a href="cv.html" class="px-3.5 py-2.5 text-[14px] uppercase tracking-[0.08em] text-soft no-underline transition-colors hover:text-lilac">cv</a>
+      <a href="contacto.html" class="ml-2 rounded-full border border-line2 px-5 py-2.5 text-[14px] uppercase tracking-[0.08em] text-lilac no-underline transition-colors hover:bg-lilac hover:text-ink">contacto</a>
+    </nav>
+  </header>
+
+  <nav id="menu-movil" data-menu-panel hidden aria-label="Principal móvil" class="flex flex-col border-b border-line py-2 sm:hidden">
+    <a href="index.html" class="py-3 text-[15px] uppercase tracking-[0.08em] text-mute no-underline">inicio</a>
+    <a href="sobre-mi.html" class="py-3 text-[15px] uppercase tracking-[0.08em] text-mute no-underline">sobre mí</a>
+    <a href="publicaciones.html" class="py-3 text-[15px] uppercase tracking-[0.08em] text-mute no-underline">publicaciones</a>
+    <a href="cv.html" class="py-3 text-[15px] uppercase tracking-[0.08em] text-mute no-underline">cv</a>
+    <a href="contacto.html" class="py-3 text-[15px] uppercase tracking-[0.08em] text-lilac no-underline">contacto</a>
+  </nav>
+
+  <main id="principal">
+
+    <section class="pb-12 pt-16 sm:pt-20">
+      <p class="reveal m-0 mb-5 text-[11px] uppercase tracking-ultra text-lilac">02 — laboratorio</p>
+      <h1 class="reveal m-0 max-w-[15ch] font-display text-[clamp(46px,7vw,92px)] font-normal leading-[0.95] tracking-[-0.03em]" data-delay="60">
+        montar, documentar, <span class="italic text-lilac">bastionar</span>
+      </h1>
+      <p class="reveal m-0 mt-8 max-w-[62ch] text-base leading-[1.85] text-soft" data-delay="140">
+        Una selección de prácticas, laboratorios y proyectos personales desarrollados durante mi formación en Administración de Sistemas Informáticos en Red (ASIR), incluyendo mis ideas y esbozos de proyectos para los próximos meses. El código y las configuraciones están en mi GitHub: <a href="https://github.com/selenepasek" class="text-lilac">github.com/selenepasek</a>.
+      </p>
+    </section>
+
+    <section aria-labelledby="p1" class="border-t border-line py-14">
+      <div class="reveal mb-8 flex flex-wrap items-baseline gap-x-7 gap-y-3">
+        <span class="w-[116px] shrink-0 text-xs tracking-[0.12em] text-lilac">proyecto 01</span>
+        <h2 id="p1" class="m-0 min-w-0 grow-[999] basis-[320px] font-display text-[clamp(28px,4vw,46px)] font-normal leading-tight tracking-[-0.02em]">
+          Servidor DNS y DHCP sobre Ubuntu Server en VMware ESXi
+        </h2>
+      </div>
+
+      <div class="flex flex-wrap gap-10">
+        <div class="min-w-0 grow-[999] basis-[440px]">
+          <h3 class="m-0 mb-3 text-[11px] uppercase tracking-[0.2em] text-lilac">objetivo</h3>
+          <p class="reveal m-0 mb-9 max-w-[62ch] text-[14.5px] leading-[1.85] text-soft">
+            Levantar un servidor que resuelva nombres de dominio locales (DNS) y asigne direcciones IP automáticamente a los clientes de la red (DHCP), simulando la infraestructura básica de una red corporativa.
+          </p>
+
+          <h3 class="m-0 mb-4 text-[11px] uppercase tracking-[0.2em] text-lilac">configuración</h3>
+          <div class="reveal border-t border-line">
+            <div class="flex flex-wrap gap-x-7 gap-y-2 border-b border-line py-5">
+              <span class="w-[150px] shrink-0 text-[12px] uppercase tracking-[0.12em] text-mute">red e IP estática</span>
+              <p class="m-0 min-w-0 grow-[999] basis-[260px] text-[13.5px] leading-[1.8] text-soft">Port Group dedicado en ESXi e IP estática configurada mediante Netplan.</p>
+            </div>
+            <div class="flex flex-wrap gap-x-7 gap-y-2 border-b border-line py-5">
+              <span class="w-[150px] shrink-0 text-[12px] uppercase tracking-[0.12em] text-mute">DNS · BIND9</span>
+              <p class="m-0 min-w-0 grow-[999] basis-[260px] text-[13.5px] leading-[1.8] text-soft">Zona local <code class="text-lilac">asirlab.local</code> con registros A para <code class="text-lilac">ns</code> y <code class="text-lilac">www</code>, declarada en <code class="text-lilac">/etc/bind/named.conf.local</code> y <code class="text-lilac">/etc/bind/db.asirlab.local</code>.</p>
+            </div>
+            <div class="flex flex-wrap gap-x-7 gap-y-2 border-b border-line py-5">
+              <span class="w-[150px] shrink-0 text-[12px] uppercase tracking-[0.12em] text-mute">DHCP · ISC</span>
+              <p class="m-0 min-w-0 grow-[999] basis-[260px] text-[13.5px] leading-[1.8] text-soft">Rango <code class="text-lilac">192.168.1.200–220</code>, puerta de enlace <code class="text-lilac">192.168.1.1</code>, DNS entregado a los clientes <code class="text-lilac">192.168.1.147</code> (el propio servidor) y dominio <code class="text-lilac">asirlab.local</code>.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="min-w-0 grow basis-[300px]">
+          <div class="reveal rounded-2xl border border-line bg-panel/50 p-6">
+            <h3 class="m-0 mb-4 text-[11px] uppercase tracking-[0.2em] text-lilac">arquitectura</h3>
+            <dl class="m-0 border-t border-line">
+              <div class="border-b border-line py-3">
+                <dt class="text-[10px] uppercase tracking-[0.18em] text-mute">red aislada</dt>
+                <dd class="m-0 mt-1 text-[13.5px] text-cream">LAN-DNS-DHCP · vSwitch0</dd>
+              </div>
+              <div class="border-b border-line py-3">
+                <dt class="text-[10px] uppercase tracking-[0.18em] text-mute">ip del servidor</dt>
+                <dd class="m-0 mt-1 text-[13.5px] text-cream">192.168.1.147/24</dd>
+              </div>
+              <div class="border-b border-line py-3">
+                <dt class="text-[10px] uppercase tracking-[0.18em] text-mute">zona dns</dt>
+                <dd class="m-0 mt-1 text-[13.5px] text-cream">asirlab.local</dd>
+              </div>
+              <div class="border-b border-line py-3">
+                <dt class="text-[10px] uppercase tracking-[0.18em] text-mute">rango dhcp</dt>
+                <dd class="m-0 mt-1 text-[13.5px] text-cream">192.168.1.200 – .220</dd>
+              </div>
+            </dl>
+            <h3 class="m-0 mb-3 mt-7 text-[11px] uppercase tracking-[0.2em] text-lilac">tecnologías</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">Ubuntu Server</span>
+              <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">VMware ESXi</span>
+              <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">BIND9</span>
+              <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">ISC DHCP Server</span>
+              <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">Netplan</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <figure class="reveal m-0 mt-10">
+        <img src="fotos/lab-dns-dig.png"
+             alt="Salida del comando dig consultando www.asirlab.local contra 127.0.0.1. La sección ANSWER devuelve un registro A con la dirección 192.168.1.147 y un tiempo de consulta de 4 ms."
+             class="block w-full rounded-2xl border border-line">
+        <figcaption class="m-0 mt-4 text-[12px] leading-relaxed text-mute">
+          Comprobación con <code class="text-lilac">dig</code>: la zona responde y <code class="text-lilac">www.asirlab.local</code> resuelve a <code class="text-lilac">192.168.1.147</code> en 4 ms.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="p2" class="border-t border-line py-14">
+      <div class="reveal mb-8 flex flex-wrap items-baseline gap-x-7 gap-y-3">
+        <span class="w-[116px] shrink-0 text-xs tracking-[0.12em] text-lilac">proyecto 02</span>
+        <h2 id="p2" class="m-0 min-w-0 grow-[999] basis-[320px] font-display text-[clamp(28px,4vw,46px)] font-normal leading-tight tracking-[-0.02em]">
+          Laboratorio de bastionado sobre Ubuntu Server 20.04 LTS
+        </h2>
+      </div>
+
+      <ol class="reveal m-0 mb-10 grid list-none grid-cols-1 gap-x-10 border-t border-line p-0 sm:grid-cols-2 lg:grid-cols-3">
+        <li class="flex items-baseline gap-4 border-b border-line py-3.5 text-[13.5px] text-cream"><span class="text-[11px] text-lilac">01</span>Gestión de usuarios y permisos</li>
+        <li class="flex items-baseline gap-4 border-b border-line py-3.5 text-[13.5px] text-cream"><span class="text-[11px] text-lilac">02</span>Bastionado de SSH</li>
+        <li class="flex items-baseline gap-4 border-b border-line py-3.5 text-[13.5px] text-cream"><span class="text-[11px] text-lilac">03</span>Login de root deshabilitado</li>
+        <li class="flex items-baseline gap-4 border-b border-line py-3.5 text-[13.5px] text-cream"><span class="text-[11px] text-lilac">04</span>Cortafuegos con UFW</li>
+        <li class="flex items-baseline gap-4 border-b border-line py-3.5 text-[13.5px] text-cream"><span class="text-[11px] text-lilac">05</span>Fail2Ban</li>
+        <li class="flex items-baseline gap-4 border-b border-line py-3.5 text-[13.5px] text-cream"><span class="text-[11px] text-lilac">06</span>Informe comparativo antes / después</li>
+      </ol>
+
+      <div class="reveal overflow-hidden rounded-[20px] border border-line bg-deck/90">
+        <div class="flex flex-wrap items-center justify-between gap-3.5 border-b border-line px-5 py-4">
+          <p class="m-0 text-[11px] uppercase tracking-[0.2em] text-mute">topología del laboratorio · pulsa un nodo</p>
+          <button type="button" data-trace-run class="min-h-[44px] rounded-full border border-lilac px-5 text-xs uppercase tracking-[0.12em] text-lilac transition-colors hover:bg-lilac hover:text-ink disabled:opacity-60">seguir la ruta</button>
+        </div>
+
+        <div class="overflow-x-auto p-6">
+          <div data-topology data-start="fw" data-path="isp,fw,sw,vlan10,ubuntu" class="relative h-[460px] w-[900px]">
+
+            <div data-link data-from="isp"    data-to="fw"     class="sp-link absolute h-0.5 origin-left" aria-hidden="true"></div>
+            <div data-link data-from="fw"     data-to="sw"     class="sp-link absolute h-0.5 origin-left" aria-hidden="true"></div>
+            <div data-link data-from="sw"     data-to="vlan10" class="sp-link absolute h-0.5 origin-left" aria-hidden="true"></div>
+            <div data-link data-from="sw"     data-to="vlan20" class="sp-link absolute h-0.5 origin-left" aria-hidden="true"></div>
+            <div data-link data-from="vlan10" data-to="ubuntu" class="sp-link absolute h-0.5 origin-left" aria-hidden="true"></div>
+            <div data-link data-from="vlan10" data-to="nas"    class="sp-link absolute h-0.5 origin-left" aria-hidden="true"></div>
+            <div data-link data-from="vlan20" data-to="pc1"    class="sp-link absolute h-0.5 origin-left" aria-hidden="true"></div>
+            <div data-link data-from="vlan20" data-to="pc2"    class="sp-link absolute h-0.5 origin-left" aria-hidden="true"></div>
+
+            <button type="button" data-node="isp" style="left:80px; top:230px;"
+                    data-name="Router ISP" data-addr="192.168.1.1/24" data-layer="WAN · frontera" data-role="Salida a internet"
+                    data-body="El extremo que no controlo. Marca la frontera del laboratorio y sirve de referencia para medir cualquier degradación interna."
+                    class="sp-node absolute min-h-[66px] w-[152px] rounded-[13px] border px-3.5 py-3 text-left text-cream">
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-lilac">wan</span>
+              <span class="mt-1.5 block text-[13px] leading-snug">Router ISP</span>
+            </button>
+
+            <button type="button" data-node="fw" style="left:258px; top:230px;"
+                    data-name="Cortafuegos / Gateway" data-addr="Ubuntu Server" data-layer="L3/L4" data-role="UFW · Fail2Ban · SSH bastionado"
+                    data-body="El corazón del laboratorio de bastionado: cortafuegos UFW, prevención de intrusos con Fail2Ban, SSH endurecido y login de root deshabilitado. Mínimo privilegio por defecto."
+                    class="sp-node absolute min-h-[66px] w-[152px] rounded-[13px] border px-3.5 py-3 text-left text-cream">
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-lilac">seguridad</span>
+              <span class="mt-1.5 block text-[13px] leading-snug">Cortafuegos / Gateway</span>
+            </button>
+
+            <button type="button" data-node="sw" style="left:430px; top:230px;"
+                    data-name="Switch principal" data-addr="—" data-layer="L2 · troncal" data-role="Segmentación en VLANs"
+                    data-body="Reparte el tráfico entre los dos segmentos. Cualquier error de etiquetado se nota aquí en segundos."
+                    class="sp-node absolute min-h-[66px] w-[152px] rounded-[13px] border px-3.5 py-3 text-left text-cream">
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-lilac">conmutación</span>
+              <span class="mt-1.5 block text-[13px] leading-snug">Switch principal</span>
+            </button>
+
+            <button type="button" data-node="vlan10" style="left:605px; top:112px;"
+                    data-name="VLAN 10 · Servidores" data-addr="10.0.10.0/24" data-layer="acceso" data-role="Servicios internos"
+                    data-body="Segmento de servidores. Es el más restringido: solo se abren los puertos que cada servicio necesita de verdad."
+                    class="sp-node absolute min-h-[66px] w-[152px] rounded-[13px] border px-3.5 py-3 text-left text-cream">
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-lilac">vlan 10</span>
+              <span class="mt-1.5 block text-[13px] leading-snug">Servidores</span>
+            </button>
+
+            <button type="button" data-node="vlan20" style="left:605px; top:350px;"
+                    data-name="VLAN 20 · Clientes" data-addr="10.0.20.0/24" data-layer="acceso" data-role="Puestos de trabajo"
+                    data-body="Segmento de clientes Windows, con direccionamiento por DHCP y sin visibilidad directa hacia los servidores."
+                    class="sp-node absolute min-h-[66px] w-[152px] rounded-[13px] border px-3.5 py-3 text-left text-cream">
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-lilac">vlan 20</span>
+              <span class="mt-1.5 block text-[13px] leading-snug">Clientes</span>
+            </button>
+
+            <button type="button" data-node="ubuntu" style="left:790px; top:52px;"
+                    data-name="Ubuntu VM (ESXi)" data-addr="VLAN 10" data-layer="aplicación" data-role="DNS · DHCP · Docker host"
+                    data-body="La máquina virtual del primer proyecto, ya integrada en la red segmentada: resuelve nombres, reparte direcciones y aloja contenedores."
+                    class="sp-node absolute min-h-[66px] w-[152px] rounded-[13px] border px-3.5 py-3 text-left text-cream">
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-lilac">servidor</span>
+              <span class="mt-1.5 block text-[13px] leading-snug">Ubuntu VM (ESXi)</span>
+            </button>
+
+            <button type="button" data-node="nas" style="left:790px; top:172px;"
+                    data-name="Servidor de almacenamiento" data-addr="VLAN 10" data-layer="aplicación" data-role="LVM y particionado"
+                    data-body="Volúmenes gestionados con LVM y particionado hecho desde la línea de comandos, para poder crecer sin rehacer el disco."
+                    class="sp-node absolute min-h-[66px] w-[152px] rounded-[13px] border px-3.5 py-3 text-left text-cream">
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-lilac">almacenamiento</span>
+              <span class="mt-1.5 block text-[13px] leading-snug">Servidor de archivos</span>
+            </button>
+
+            <button type="button" data-node="pc1" style="left:790px; top:300px;"
+                    data-name="Windows PC 01" data-addr="IP por DHCP" data-layer="cliente" data-role="NetBIOS deshabilitado"
+                    data-body="Puesto Windows con NetBIOS deshabilitado y direccionamiento automático desde la VLAN 20."
+                    class="sp-node absolute min-h-[66px] w-[152px] rounded-[13px] border px-3.5 py-3 text-left text-cream">
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-lilac">cliente</span>
+              <span class="mt-1.5 block text-[13px] leading-snug">Windows PC 01</span>
+            </button>
+
+            <button type="button" data-node="pc2" style="left:790px; top:410px;"
+                    data-name="Windows PC 02" data-addr="IP por DHCP" data-layer="cliente" data-role="Cliente FileZilla (FTP)"
+                    data-body="Segundo puesto Windows, usado para probar transferencias FTP/SFTP contra el servidor de archivos."
+                    class="sp-node absolute min-h-[66px] w-[152px] rounded-[13px] border px-3.5 py-3 text-left text-cream">
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-lilac">cliente</span>
+              <span class="mt-1.5 block text-[13px] leading-snug">Windows PC 02</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
+        <article class="reveal rounded-2xl border border-line bg-panel/60 p-6">
+          <p class="m-0 mb-3.5 text-[11px] uppercase tracking-[0.2em] text-lilac">nodo seleccionado</p>
+          <h3 data-detail="name" class="m-0 mb-1.5 font-display text-[30px] font-normal leading-tight">Cortafuegos / Gateway</h3>
+          <p data-detail="addr" class="m-0 mb-4 text-xs uppercase tracking-[0.14em] text-mute">Ubuntu Server</p>
+          <p data-detail="body" class="m-0 mb-5 text-sm leading-[1.8] text-soft">El corazón del laboratorio de bastionado.</p>
+          <dl class="m-0 grid grid-cols-2 gap-3.5">
+            <div>
+              <dt class="text-[10px] uppercase tracking-[0.18em] text-mute">capa</dt>
+              <dd data-detail="layer" class="m-0 mt-1.5 text-sm text-cream">L3/L4</dd>
+            </div>
+            <div>
+              <dt class="text-[10px] uppercase tracking-[0.18em] text-mute">rol</dt>
+              <dd data-detail="role" class="m-0 mt-1.5 text-sm text-cream">UFW · Fail2Ban · SSH bastionado</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="reveal overflow-hidden rounded-2xl border border-line bg-deck" data-delay="90">
+          <div class="border-b border-line px-5 py-3 text-[11px] uppercase tracking-[0.16em] text-mute">selene@gateway — ruta hasta el servidor</div>
+          <div class="px-5 pb-6 pt-5 text-[13px] leading-[2]">
+            <div data-trace-log></div>
+            <p data-trace-idle class="m-0 text-mute">esperando — pulsa «seguir la ruta».</p>
+            <p data-trace-done hidden class="m-0 mt-3 text-lilac">✦ destino alcanzado en 5 saltos</p>
+          </div>
+        </article>
+      </div>
+
+      <figure class="reveal m-0 mt-5">
+        <img src="fotos/lab-fail2ban.png"
+             alt="Terminal mostrando la salida de sudo fail2ban-client status sshd: filtro activo sobre /var/log/auth.log, un intento fallido en curso, cuatro en total y ninguna IP baneada."
+             class="block w-full rounded-2xl border border-line">
+        <figcaption class="m-0 mt-4 text-[12px] leading-relaxed text-mute">
+          Estado de la <em class="not-italic text-lilac">jail</em> de SSH en Fail2Ban, vigilando <code class="text-lilac">/var/log/auth.log</code>: cuatro intentos fallidos registrados y ninguna IP baneada todavía.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="p3" class="border-t border-line py-14">
+      <div class="reveal mb-8 flex flex-wrap items-baseline gap-x-7 gap-y-3">
+        <span class="w-[116px] shrink-0 text-xs tracking-[0.12em] text-lilac">proyecto 03</span>
+        <h2 id="p3" class="m-0 min-w-0 grow-[999] basis-[320px] font-display text-[clamp(28px,4vw,46px)] font-normal leading-tight tracking-[-0.02em]">
+          Práctica de CCNA: red multisede con VoIP
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
+        <article class="reveal rounded-2xl border border-line bg-panel/50 p-6">
+          <h3 class="m-0 mb-3 font-display text-[22px] font-normal leading-snug text-lilac">Núcleo WAN y enrutamiento</h3>
+          <p class="m-0 text-[13.5px] leading-[1.8] text-soft">Tres routers Cisco 2811 interconectados mediante enlaces serie en subredes /30 (11.0.0.0, 12.0.0.0 y 10.0.0.0) para gestionar el tráfico entre sedes y el enrutamiento inter-VLAN.</p>
+        </article>
+        <article class="reveal rounded-2xl border border-line bg-panel/50 p-6" data-delay="80">
+          <h3 class="m-0 mb-3 font-display text-[22px] font-normal leading-snug text-lilac">Telefonía IP</h3>
+          <p class="m-0 text-[13.5px] leading-[1.8] text-soft">Segmentación dedicada para el tráfico de voz a través de VLANs específicas (30, 40 y 110), asociadas a los rangos de extensiones 1000, 2000 y 3000.</p>
+        </article>
+        <article class="reveal rounded-2xl border border-line bg-panel/50 p-6" data-delay="160">
+          <h3 class="m-0 mb-3 font-display text-[22px] font-normal leading-snug text-lilac">Segmentación por sedes</h3>
+          <p class="m-0 text-[13.5px] leading-[1.8] text-soft">Múltiples VLANs para organizar el tráfico por departamentos (CUENTOS, ENSAYOS) y por delegaciones territoriales.</p>
+        </article>
+      </div>
+
+      <figure class="reveal m-0 mt-10">
+        <div class="overflow-x-auto rounded-2xl border border-line bg-white p-4 sm:p-6">
+          <img src="fotos/lab-ccna.png"
+               alt="Esquema en Packet Tracer: un router Cisco 2811 con enlaces serie 10.0.0.1, 11.0.0.1 y 12.0.0.1 conectado a cuatro switches 2960, cada uno con sus VLANs etiquetadas por color y rango: VLAN 10 Rojo 192.168.1.0, VLAN 20 Verde 192.168.2.0, VLAN 30 de voz con teléfonos IP 7960 y extensión 1000, VLAN 40 Azul, VLAN 50 Violeta, VLAN 60 Amarillo, VLAN 70 Gris, VLAN 80 Marrón y VLAN 90 Naranja."
+               class="block w-full min-w-[640px] max-w-none">
+        </div>
+        <figcaption class="m-0 mt-4 text-[12px] leading-relaxed text-mute">
+          Montaje en Packet Tracer: el núcleo Cisco 2811, los cuatro switches de acceso y las VLANs por departamento y sede, con la VLAN de voz y sus teléfonos IP 7960.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="ahora" class="border-t-2 border-lilac/40 py-14">
+      <h2 id="ahora" class="reveal m-0 mb-10 font-display text-[clamp(32px,4.6vw,54px)] font-normal leading-none tracking-[-0.025em]">
+        en desarrollo
+      </h2>
+
+      <article class="reveal rounded-[20px] border border-line bg-panel/50 p-7">
+        <p class="m-0 mb-3 text-[11px] uppercase tracking-[0.2em] text-lilac">iot · hardware</p>
+        <h3 class="m-0 mb-4 max-w-[28ch] font-display text-[clamp(26px,3.4vw,38px)] font-normal leading-tight text-cream">
+          Dispositivo bastionado de almacenamiento de datos de salud
+        </h3>
+        <p class="m-0 mb-8 max-w-[70ch] text-[14.5px] leading-[1.85] text-soft">
+          Dispositivo ultraportátil para almacenar y visualizar datos de salud personales, con hardening tanto en el firmware como en el hardware.
+        </p>
+
+        <dl class="m-0 grid grid-cols-1 gap-x-10 border-t border-line sm:grid-cols-2">
+          <div class="border-b border-line py-4">
+            <dt class="text-[11px] uppercase tracking-[0.16em] text-lilac">Microcontrolador</dt>
+            <dd class="m-0 mt-1.5 text-[13.5px] leading-[1.7] text-soft">Heltec Wireless Paper: ESP32 con pantalla E-Ink, que mantiene los datos visibles sin consumir batería.</dd>
+          </div>
+          <div class="border-b border-line py-4">
+            <dt class="text-[11px] uppercase tracking-[0.16em] text-lilac">Alimentación</dt>
+            <dd class="m-0 mt-1.5 text-[13.5px] leading-[1.7] text-soft">LiPo de 1500 mAh con suspensión profunda del ESP32.</dd>
+          </div>
+          <div class="border-b border-line py-4">
+            <dt class="text-[11px] uppercase tracking-[0.16em] text-lilac">Chasis</dt>
+            <dd class="m-0 mt-1.5 text-[13.5px] leading-[1.7] text-soft">Carcasa propia impresa en 3D con filamento PETG.</dd>
+          </div>
+          <div class="border-b border-line py-4">
+            <dt class="text-[11px] uppercase tracking-[0.16em] text-lilac">Seguridad</dt>
+            <dd class="m-0 mt-1.5 text-[13.5px] leading-[1.7] text-soft">Cifrado en memoria, bastionado del stack de comunicaciones, puertos de depuración deshabilitados y control estricto de accesos.</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+
+    <section aria-labelledby="futuros" class="border-t border-line py-14">
+      <h2 id="futuros" class="reveal m-0 mb-10 font-display text-[clamp(32px,4.6vw,54px)] font-normal leading-none tracking-[-0.025em]">
+        próximos proyectos
+      </h2>
+
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+
+        <article class="reveal rounded-2xl border border-line bg-panel/50 p-7">
+          <p class="m-0 mb-3 text-[11px] uppercase tracking-[0.2em] text-lilac">posible TFG de ASIR</p>
+          <h3 class="m-0 mb-4 font-display text-[28px] font-normal leading-tight text-cream">Desarrollo de un mini SIEM</h3>
+          <p class="m-0 mb-6 text-[13.5px] leading-[1.8] text-soft">
+            Un SIEM ligero para centralizar, ingerir y analizar los logs que generan los dispositivos de red, los servidores Linux y Windows y los contenedores. Estoy profundizando en <em class="not-italic text-lilac">parsing</em> para poder escribir scripts más funcionales.
+          </p>
+          <h4 class="m-0 mb-3 text-[11px] uppercase tracking-[0.16em] text-mute">funcionalidades clave</h4>
+          <ul class="m-0 list-none border-t border-line p-0">
+            <li class="flex gap-3 border-b border-line py-3 text-[13px] leading-relaxed text-soft"><span aria-hidden="true" class="shrink-0 text-lilac">·</span>Recolección y normalización de eventos de seguridad</li>
+            <li class="flex gap-3 border-b border-line py-3 text-[13px] leading-relaxed text-soft"><span aria-hidden="true" class="shrink-0 text-lilac">·</span>Reglas de correlación en tiempo real para detectar patrones anómalos: fuerza bruta, escaneos de puertos, cambios indebidos de privilegios</li>
+            <li class="flex gap-3 py-3 text-[13px] leading-relaxed text-soft"><span aria-hidden="true" class="shrink-0 text-lilac">·</span>Panel de visualización y alertas prioritarias para respuesta rápida</li>
+          </ul>
+        </article>
+
+        <article class="reveal rounded-2xl border border-line bg-panel/50 p-7" data-delay="90">
+          <p class="m-0 mb-3 text-[11px] uppercase tracking-[0.2em] text-lilac">auditoría</p>
+          <h3 class="m-0 mb-4 font-display text-[28px] font-normal leading-tight text-cream">Auditoría de entornos Active Directory</h3>
+          <p class="m-0 mb-6 text-[13.5px] leading-[1.8] text-soft">
+            Desplegar una infraestructura corporativa simulada con Windows Server (Active Directory y GPOs) y realizar una auditoría de seguridad completa desde Kali Linux, para evaluar los fallos de configuración más habituales en empresas.
+          </p>
+          <h4 class="m-0 mb-3 text-[11px] uppercase tracking-[0.16em] text-mute">herramientas previstas</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">BloodHound</span>
+            <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">Responder</span>
+            <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">Impacket</span>
+            <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">CrackMapExec</span>
+            <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">John the Ripper</span>
+            <span class="rounded-full border border-line2 px-3.5 py-1.5 text-[11.5px] text-soft">Hashcat</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <nav aria-label="Siguiente sección" class="flex flex-wrap items-center justify-between gap-4 border-t border-line py-8 pb-14">
+    <a href="sobre-mi.html" class="text-xs uppercase tracking-[0.14em] text-lilac">← sobre mí</a>
+    <a href="publicaciones.html" class="inline-flex min-h-[48px] items-center rounded-full border border-line2 px-6 text-[13px] uppercase tracking-[0.08em] text-lilac no-underline transition-colors hover:bg-lilac hover:text-ink">publicaciones →</a>
+  </nav>
+
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

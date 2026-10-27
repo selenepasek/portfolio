@@ -1,0 +1,59 @@
+:root { color-scheme: light; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #F6F5F8;
+  background-image: radial-gradient(rgba(94, 66, 211, 0.10) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+::selection { background: #5E42D3; color: #FFFFFF; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #5E42D3;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@keyframes sp-slide { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+@keyframes sp-spin  { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes sp-float { 0% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-18px) rotate(3deg); } 100% { transform: translateY(0) rotate(-3deg); } }
+
+.sp-ticker  { display: flex; width: max-content; animation: sp-slide 38s linear infinite; }
+.sp-orbit   { animation: sp-spin 44s linear infinite; }
+.sp-float   { animation: sp-float 9s ease-in-out infinite; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .85s cubic-bezier(.2, .8, .2, 1), transform .85s cubic-bezier(.2, .8, .2, 1);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+.sp-row .sp-arrow { transition: transform .35s cubic-bezier(.2, .8, .2, 1), opacity .35s ease; opacity: .4; }
+.sp-row:hover .sp-arrow,
+.sp-row:focus-visible .sp-arrow { transform: translateX(10px); opacity: 1; }
+
+.sp-chan { transition: padding-left .3s ease, background-color .3s ease; }
+.sp-chan:hover { padding-left: 26px; background-color: rgba(94, 66, 211, 0.06); }
+
+.sp-node {
+  transform: translate(-50%, -50%);
+  transition: transform .3s cubic-bezier(.2, .8, .2, 1), border-color .3s ease, background-color .3s ease, box-shadow .3s ease;
+  box-shadow: 0 1px 2px rgba(26, 24, 37, 0.05);
+}
+.sp-node:hover,
+.sp-node:focus-visible { transform: translate(-50%, -50%) scale(1.05); }
+.sp-link { transition: background-color .4s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .sp-ticker, .sp-orbit, .sp-float { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .sp-node:hover { transform: translate(-50%, -50%); }
+}
